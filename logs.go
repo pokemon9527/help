@@ -2,7 +2,6 @@ package logs
 
 import (
 	"bytes"
-	"camera-adapater/config"
 	"fmt"
 	"github.com/natefinch/lumberjack"
 	"github.com/sirupsen/logrus"
@@ -24,7 +23,7 @@ const (
 )
 
 func InitLog() {
-	withjson, _ := config.Cfg.Bool(log, withJson)
+	withjson := true
 	if withjson {
 		logrus.SetFormatter(&logrus.JSONFormatter{})
 	} else {
